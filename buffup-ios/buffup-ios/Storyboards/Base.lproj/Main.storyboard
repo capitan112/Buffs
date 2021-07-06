@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gibson-SemiBold.otf">
+            <string>Gibson-SemiBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Buff_Up" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BG_image" translatesAutoresizingMaskIntoConstraints="NO" id="1KD-fJ-Xsd">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BuffLogo" translatesAutoresizingMaskIntoConstraints="NO" id="g3R-8W-eAp">
+                                <rect key="frame" x="46" y="304" width="117" height="47"/>
+                                <color key="tintColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="117" id="nH8-ya-jeC"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Buff_chev" translatesAutoresizingMaskIntoConstraints="NO" id="euZ-m9-z0C">
+                                <rect key="frame" x="171" y="324" width="13" height="19"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sports" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHW-eJ-ohO">
+                                <rect key="frame" x="46" y="371" width="157" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gaming" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQE-a4-S7o">
+                                <rect key="frame" x="46" y="427" width="157" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZP1-XB-3Jo">
+                                <rect key="frame" x="46" y="483" width="157" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CiW-Jd-yqY" userLabel="ButtonsView">
+                                <rect key="frame" x="30" y="605" width="368" height="279"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SU-Qx-yPL">
+                                        <rect key="frame" x="8" y="114.66666666666663" width="352" height="50"/>
+                                        <color key="backgroundColor" name="ceruleanBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="ibh-Ff-4Ml"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                                        <state key="normal" title="Start Video">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Yfq-CY-EHj" kind="show" id="3f9-n6-RF6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="1SU-Qx-yPL" secondAttribute="trailing" constant="8" id="GWv-8B-kIz"/>
+                                    <constraint firstItem="1SU-Qx-yPL" firstAttribute="centerY" secondItem="CiW-Jd-yqY" secondAttribute="centerY" id="hvD-x7-qAa"/>
+                                    <constraint firstItem="1SU-Qx-yPL" firstAttribute="leading" secondItem="CiW-Jd-yqY" secondAttribute="leading" constant="8" id="jfV-kb-X9F"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7R9-Ps-VTX"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="KHW-eJ-ohO" firstAttribute="trailing" secondItem="g3R-8W-eAp" secondAttribute="trailing" constant="40" id="6rI-gb-KKD"/>
+                            <constraint firstItem="KHW-eJ-ohO" firstAttribute="leading" secondItem="g3R-8W-eAp" secondAttribute="leading" id="8FQ-Ae-iO4"/>
+                            <constraint firstAttribute="trailing" secondItem="1KD-fJ-Xsd" secondAttribute="trailing" id="Bjs-YH-HwY"/>
+                            <constraint firstItem="uQE-a4-S7o" firstAttribute="top" secondItem="KHW-eJ-ohO" secondAttribute="bottom" constant="8" id="CbN-Pc-wdI"/>
+                            <constraint firstItem="CiW-Jd-yqY" firstAttribute="leading" secondItem="7R9-Ps-VTX" secondAttribute="leading" constant="30" id="Dpk-Ei-Pos"/>
+                            <constraint firstItem="KHW-eJ-ohO" firstAttribute="top" secondItem="g3R-8W-eAp" secondAttribute="bottom" constant="20" id="E4X-b9-PAP"/>
+                            <constraint firstItem="ZP1-XB-3Jo" firstAttribute="top" secondItem="uQE-a4-S7o" secondAttribute="bottom" constant="8" id="JxA-0v-yzF"/>
+                            <constraint firstItem="euZ-m9-z0C" firstAttribute="leading" secondItem="g3R-8W-eAp" secondAttribute="trailing" constant="8" id="NzU-YH-YyG"/>
+                            <constraint firstAttribute="bottom" secondItem="1KD-fJ-Xsd" secondAttribute="bottom" id="PgX-lW-2Yz"/>
+                            <constraint firstItem="7R9-Ps-VTX" firstAttribute="bottom" secondItem="CiW-Jd-yqY" secondAttribute="bottom" constant="8" id="RfV-mS-Lhr"/>
+                            <constraint firstItem="uQE-a4-S7o" firstAttribute="trailing" secondItem="KHW-eJ-ohO" secondAttribute="trailing" id="UjZ-5f-QTY"/>
+                            <constraint firstItem="ZP1-XB-3Jo" firstAttribute="leading" secondItem="KHW-eJ-ohO" secondAttribute="leading" id="UuF-qb-nLD"/>
+                            <constraint firstItem="g3R-8W-eAp" firstAttribute="centerY" secondItem="7R9-Ps-VTX" secondAttribute="centerY" multiplier="0.7" id="VQg-NO-6CQ"/>
+                            <constraint firstItem="euZ-m9-z0C" firstAttribute="centerY" secondItem="g3R-8W-eAp" secondAttribute="centerY" constant="6" id="ZnC-YP-Me5"/>
+                            <constraint firstItem="uQE-a4-S7o" firstAttribute="leading" secondItem="KHW-eJ-ohO" secondAttribute="leading" id="aOq-Wz-0Ox"/>
+                            <constraint firstItem="1KD-fJ-Xsd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bNE-45-opb"/>
+                            <constraint firstItem="ZP1-XB-3Jo" firstAttribute="trailing" secondItem="KHW-eJ-ohO" secondAttribute="trailing" id="gv2-wq-hPe"/>
+                            <constraint firstItem="7R9-Ps-VTX" firstAttribute="trailing" secondItem="CiW-Jd-yqY" secondAttribute="trailing" constant="30" id="kKF-ph-gez"/>
+                            <constraint firstItem="CiW-Jd-yqY" firstAttribute="top" secondItem="ZP1-XB-3Jo" secondAttribute="bottom" constant="74" id="kP3-mi-rVp"/>
+                            <constraint firstItem="g3R-8W-eAp" firstAttribute="leading" secondItem="7R9-Ps-VTX" secondAttribute="leading" constant="46" id="ufT-kv-LQC"/>
+                            <constraint firstItem="1KD-fJ-Xsd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="wuH-nC-Nd4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="RE3-Ym-itD"/>
+                    <connections>
+                        <outlet property="buffChevron" destination="euZ-m9-z0C" id="a7W-o4-gY6"/>
+                        <outlet property="buffLogo" destination="g3R-8W-eAp" id="Hqv-cD-33N"/>
+                        <outlet property="buffLogoWidthConstraint" destination="nH8-ya-jeC" id="60f-Ra-evw"/>
+                        <outlet property="buttonsView" destination="CiW-Jd-yqY" id="yrP-Wb-x3z"/>
+                        <outlet property="buttonsViewBottomConstraint" destination="RfV-mS-Lhr" id="Fnd-d4-ExH"/>
+                        <outlet property="chevronTopConstraint" destination="ZnC-YP-Me5" id="wWP-Cz-hQr"/>
+                        <outlet property="gamingLabel" destination="uQE-a4-S7o" id="t11-ae-Xjt"/>
+                        <outlet property="gamingLabelTopConstraint" destination="CbN-Pc-wdI" id="TYL-T0-AVE"/>
+                        <outlet property="liveLabel" destination="ZP1-XB-3Jo" id="Qj3-1h-QYu"/>
+                        <outlet property="liveLabelTopConstraint" destination="JxA-0v-yzF" id="5KN-Li-O6x"/>
+                        <outlet property="sportLabel" destination="KHW-eJ-ohO" id="e4o-j8-Hh3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-984" y="-12"/>
+        </scene>
+        <!--Stream View Controller-->
+        <scene sceneID="g8h-Sf-CqI">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="Yfq-CY-EHj" customClass="StreamViewController" customModule="Buff_Up" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YAk-cE-Ain">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uce-b5-IQg" customClass="BuffView" customModule="BuffSDK">
+                                <rect key="frame" x="0.0" y="44" width="428" height="848"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swH-kd-a60">
+                                <rect key="frame" x="0.0" y="59" width="115" height="36"/>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="6FP-T2-XmQ"/>
+                                    <constraint firstAttribute="width" constant="115" id="YR9-u6-Frn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gibson-SemiBold" family="Gibson" pointSize="12"/>
+                                <inset key="titleEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Leave Game" image="Icon metro-exit">
+                                    <color key="titleColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="exitStream:" destination="Yfq-CY-EHj" eventType="touchUpInside" id="8a3-20-cUq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Rsl-T3-J9Y"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Uce-b5-IQg" firstAttribute="top" secondItem="Rsl-T3-J9Y" secondAttribute="top" id="54g-TX-uTf"/>
+                            <constraint firstItem="swH-kd-a60" firstAttribute="leading" secondItem="Rsl-T3-J9Y" secondAttribute="leading" id="WPo-YR-xIn"/>
+                            <constraint firstItem="Uce-b5-IQg" firstAttribute="trailing" secondItem="Rsl-T3-J9Y" secondAttribute="trailing" id="cXC-I0-G5b"/>
+                            <constraint firstItem="Uce-b5-IQg" firstAttribute="bottom" secondItem="Rsl-T3-J9Y" secondAttribute="bottom" id="gKl-ff-Opm"/>
+                            <constraint firstItem="Rsl-T3-J9Y" firstAttribute="leading" secondItem="Uce-b5-IQg" secondAttribute="leading" id="hKt-qn-vdu"/>
+                            <constraint firstItem="swH-kd-a60" firstAttribute="top" secondItem="Rsl-T3-J9Y" secondAttribute="top" constant="15" id="wGh-ug-JCf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gBZ-SO-BVj"/>
+                    <connections>
+                        <outlet property="buffView" destination="Uce-b5-IQg" id="eXy-kl-6gd"/>
+                        <outlet property="exitButton" destination="swH-kd-a60" id="XDQ-HU-H3T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WSd-bB-Wks" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-234.55723542116633" y="-12.616822429906541"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="BG_image" width="375" height="812"/>
+        <image name="BuffLogo" width="117" height="47"/>
+        <image name="Buff_chev" width="13" height="19"/>
+        <image name="Icon metro-exit" width="12" height="13"/>
+        <namedColor name="ceruleanBlue">
+            <color red="0.0040000001899898052" green="0.50199997425079346" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
