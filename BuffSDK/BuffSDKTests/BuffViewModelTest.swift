@@ -10,16 +10,23 @@
 import XCTest
 
 class BuffViewModelTest: XCTestCase {
-    var dataFetcher: NetworkService!
+    var dataFetcher: NetworkDataFetcherProtocol!
     var buff: Buff!
     var viewModel: BuffViewModel!
 
     override func setUp() {
-        dataFetcher = NetworkService()
-
-        buff = try? dataFetcher.fetchJSON(json: charactersJson)
-
-        viewModel = BuffViewModel(buff)
+        let networkServicelocal = NetworkServiceLocal(json: buffJson)
+        dataFetcher = NetworkDataFetcher(networking: networkServicelocal)
+        dataFetcher.fetchBuffs(by: "1", completion: { response in
+            switch response {
+            case let .success(buff):
+                self.buff = buff
+                self.viewModel = BuffViewModel(buff)
+            case let .failure(error):
+                debugPrint(error.localizedDescription)
+                XCTFail()
+            }
+        })
     }
 
     override func tearDown() {

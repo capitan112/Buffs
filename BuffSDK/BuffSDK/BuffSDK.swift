@@ -25,7 +25,7 @@ public final class BuffSDK: NSObject {
                             bundle: Bundle.sdkBundle)
     }
 
-    internal func fetchData(with id: String, completion: @escaping (Result<Buff, Error>) -> Void) {
+    func fetchData(with id: String, completion: @escaping (Result<Buff, Error>) -> Void) {
         dataFetcher.fetchBuffs(by: id, completion: completion)
     }
 

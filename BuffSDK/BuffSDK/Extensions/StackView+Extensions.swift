@@ -17,7 +17,6 @@ public extension UIStackView {
         subview.layer.cornerRadius = cornerRadius
         subview.layer.masksToBounds = true
         subview.clipsToBounds = true
-        
         insertSubview(subview, at: 0)
     }
 }

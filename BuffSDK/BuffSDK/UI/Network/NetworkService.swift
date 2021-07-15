@@ -61,7 +61,7 @@ final class NetworkService: NetworkProtocol {
         })
     }
 
-    internal func urlFrom(parameter: String) -> URL? {
+    func urlFrom(parameter: String) -> URL? {
         var components = URLComponents()
         components.scheme = RequestConstant.Server.APIScheme
         components.host = RequestConstant.Server.APIHost

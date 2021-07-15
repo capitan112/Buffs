@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <device id="ipad11_0rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -25,14 +25,14 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+            <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMB-jS-Rba">
-                    <rect key="frame" x="-356" y="73" width="300" height="310"/>
+                    <rect key="frame" x="-400" y="494" width="300" height="310"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rlV-Tg-xUw">
-                            <rect key="frame" x="8" y="158" width="274" height="152"/>
+                            <rect key="frame" x="8" y="150" width="274" height="160"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="XeA-Gf-Czb" userLabel="authorStack">
                                     <rect key="frame" x="0.0" y="0.0" width="274" height="39"/>
@@ -98,13 +98,13 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="766-Fs-29h" userLabel="questionStack">
-                                    <rect key="frame" x="0.0" y="44" width="274" height="52"/>
+                                    <rect key="frame" x="0.0" y="44" width="274" height="60"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tS3-p0-GjL">
-                                            <rect key="frame" x="0.0" y="0.0" width="274" height="52"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="274" height="60"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Questions " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CM-K7-amX" customClass="PaddingLabel" customModule="BuffSDK" customModuleProvider="target">
-                                                    <rect key="frame" x="12" y="8" width="206" height="36"/>
+                                                    <rect key="frame" x="12" y="8" width="206" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -153,7 +153,7 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jkz-GX-RAt" userLabel="contentStack">
-                                    <rect key="frame" x="0.0" y="101" width="274" height="51"/>
+                                    <rect key="frame" x="0.0" y="109" width="274" height="51"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xGC-pt-TZ9" userLabel="answersStack">
                                             <rect key="frame" x="0.0" y="0.0" width="234" height="51"/>
@@ -190,6 +190,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="rlV-Tg-xUw" firstAttribute="leading" secondItem="cMB-jS-Rba" secondAttribute="leading" constant="8" id="5Zq-qU-BOC"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="310" id="KIc-gu-Cvd"/>
                         <constraint firstAttribute="trailing" secondItem="rlV-Tg-xUw" secondAttribute="trailing" constant="18" id="Khw-Jr-epY"/>
                         <constraint firstItem="rlV-Tg-xUw" firstAttribute="top" secondItem="cMB-jS-Rba" secondAttribute="top" priority="250" constant="200" id="Yys-Dz-AwU"/>
                         <constraint firstAttribute="bottom" secondItem="rlV-Tg-xUw" secondAttribute="bottom" id="wmZ-Iq-5ft"/>
@@ -200,7 +201,6 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="cMB-jS-Rba" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="73" id="4ST-ST-2GC"/>
                 <constraint firstItem="cMB-jS-Rba" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="-400" id="SHh-iw-JbV"/>
                 <constraint firstItem="cMB-jS-Rba" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="-10" id="UYJ-WC-e3i"/>
             </constraints>
@@ -209,7 +209,7 @@
     </objects>
     <designables>
         <designable name="2CM-K7-amX">
-            <size key="intrinsicContentSize" width="138.5" height="36"/>
+            <size key="intrinsicContentSize" width="142.5" height="44"/>
         </designable>
     </designables>
     <resources>

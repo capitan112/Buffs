@@ -10,19 +10,37 @@
 import XCTest
 
 class NetworkTests: XCTestCase {
-    var dataFetcher: NetworkService!
+    var networkService: NetworkService!
+    var dataFetcher: NetworkDataFetcherProtocol!
     var buff: Buff!
 
     override func setUp() {
-        dataFetcher = NetworkService()
+        let networkServiceLocal = NetworkServiceLocal(json: buffJson)
+        dataFetcher = NetworkDataFetcher(networking: networkServiceLocal)
+        networkService = NetworkService()
     }
 
     override func tearDown() {
         dataFetcher = nil
+        networkService = nil
+        buff = nil
     }
 
+    func testImageDownload() {
+        dataFetcher.download(icon: "icon", completion: { response in
+            switch response {
+            case .success(_):
+                debugPrint("success")
+                XCTAssert(true)
+            case let .failure(error):
+                debugPrint(error.localizedDescription)
+                XCTFail()
+            }
+        })
+    }
+    
     func testURLConverter() {
-        guard let url = dataFetcher.convertToURL(parameter: String(1)) else {
+        guard let url = networkService.convertToURL(parameter: String(1)) else {
             XCTFail()
             return
         }
@@ -32,11 +50,15 @@ class NetworkTests: XCTestCase {
     }
 
     func testDataFetcher() {
-        do {
-            buff = try dataFetcher.fetchJSON(json: charactersJson)
-        } catch {
-            XCTFail("Problem with decoding")
-        }
+        dataFetcher.fetchBuffs(by: "1", completion: { response in
+            switch response {
+            case let .success(buff):
+                self.buff = buff
+            case let .failure(error):
+                debugPrint(error.localizedDescription)
+                XCTFail()
+            }
+        })
 
         let expectedQuestion = "Kaio Jorge has 4 goals this tournament – I think he will score again today. What do you think?"
         XCTAssertEqual(buff.result.question.title, expectedQuestion)
@@ -44,28 +66,38 @@ class NetworkTests: XCTestCase {
     }
 }
 
+class NetworkServiceLocal: NetworkProtocol {
+    private var charactersJson: String
+    private var imageName: String
+    
+    init(json: String, imageName: String = "Generic.Answer_ico" ) {
+        self.charactersJson = json
+        self.imageName = imageName
+    }
+    
+    func request(parameter: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        completion(.success(self.charactersJson.data(using: .utf8)!))
+    }
+    
+    func request(icon: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        let image = UIImage(named: imageName,
+                            in: Bundle.sdkBundle,
+                            compatibleWith: nil)
+        if let data = image?.pngData() {
+            completion(.success(data))
+        } else {
+            completion(.failure(ConversionFailure.missingData))
+        }
+    }
+}
+
 extension NetworkService {
     func convertToURL(parameter: String) -> URL? {
         return urlFrom(parameter: parameter)
     }
-
-    func fetchJSON(json: String) throws -> Buff {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        let jsonData = json.data(using: .utf8)!
-        var result: Buff
-        do {
-            result = try decoder.decode(Buff.self, from: jsonData)
-        } catch {
-            print(error)
-            throw error
-        }
-
-        return result
-    }
 }
 
-let charactersJson = """
+let buffJson = """
 {
     "result": {
         "id": 1,

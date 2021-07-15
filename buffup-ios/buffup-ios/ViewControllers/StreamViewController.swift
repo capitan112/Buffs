@@ -59,14 +59,19 @@ class StreamViewController: LandscapeViewController {
 
     func loadContent() {
         let buffSDK = BuffSDK()
+//        DispatchQueue.global().async {
+//            buffSDK.showBuff(by: "1", on: self.buffView)
+//        }
+        
         let timeLine = ["1": 1, "2": 20, "3": 30, "4": 50, "5": 60]
 
         for (id, value) in timeLine {
             let dispatchAfter = DispatchTimeInterval.seconds(value)
-            DispatchQueue.main.asyncAfter(deadline: .now() + dispatchAfter) {
+            DispatchQueue.global().asyncAfter(deadline: .now() + dispatchAfter) {
                 buffSDK.showBuff(by: id, on: self.buffView)
             }
         }
+    
     }
 
     deinit {
@@ -77,7 +82,9 @@ class StreamViewController: LandscapeViewController {
         let asset = AVAsset(url: url)
         let playerItem = AVPlayerItem(asset: asset)
         player = AVPlayer(playerItem: playerItem)
+        
         view.layer.addSublayer(playerLayer)
+        view.contentMode = .scaleAspectFit
         player.allowsExternalPlayback = false
         #if DEBUG
             player.isMuted = true

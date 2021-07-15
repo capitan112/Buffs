@@ -22,7 +22,7 @@ public class BuffView: UIViewNibLoadable {
     private let xShift: CGFloat = 400
     private let twoSeconds = DispatchTimeInterval.seconds(2)
 
-    public var viewModel: BuffViewModel? {
+    var viewModel: BuffViewModel? {
         didSet {
             DispatchQueue.main.async {
                 self.updateUI()
@@ -87,6 +87,8 @@ public class BuffView: UIViewNibLoadable {
 
             anwerRowStack.addArrangedSubview(button)
             anwerRowStack.addArrangedSubview(answerLabel)
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(gestureTapped(_:)))
+            anwerRowStack.addGestureRecognizer(tapGestureRecognizer)
             answersStack.addArrangedSubview(anwerRowStack)
         }
     }
@@ -106,7 +108,9 @@ public class BuffView: UIViewNibLoadable {
         let cornerRadius: CGFloat = 10
         answerButton.tag = tag
         answerButton.translatesAutoresizingMaskIntoConstraints = false
-        let image = UIImage(named: "Generic.Answer_ico", in: Bundle(for: type(of: self)), compatibleWith: nil)
+        let image = UIImage(named: "Generic.Answer_ico",
+                            in: Bundle(for: type(of: self)),
+                            compatibleWith: nil)
         answerButton.setImage(image, for: .normal)
         answerButton.setContentCompressionResistancePriority(.required, for: .horizontal)
         answerButton.setContentHuggingPriority(.required, for: .horizontal)
@@ -134,14 +138,26 @@ public class BuffView: UIViewNibLoadable {
         return stackView
     }
 
-    @objc private func buttonTapped(_ button: UIButton) {
-        viewModel?.buttonTapped(button: button)
+    @objc private func buttonTapped(_ sender: UIButton) {
+        gettedAnswer()
+    }
+        
+    @objc private func gestureTapped(_ sender: UIGestureRecognizer) {
+        if let stackView = sender.view as? UIStackView, let view = stackView.subviews.first {
+            view.backgroundColor = .green
+        }
+
+        gettedAnswer()
+    }
+    
+    private func gettedAnswer() {
         disableQuestionaryButtons()
         stopAndHideCircleTimer()
     }
     
     private func stopAndHideCircleTimer() {
         circularTimer.stopTimer()
+    
         UIView.animate(withDuration: 0.45, animations:  {
             self.circularTimer.isHidden = true
         })

@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-public class BuffViewModel {
+class BuffViewModel {
     private(set) var buff: Buff
     private let dataFetcher: NetworkDataFetcherProtocol
 
-    internal func getAuthorIcon(completion: @escaping (Result<UIImage, Error>) -> Void) {
+    func getAuthorIcon(completion: @escaping (Result<UIImage, Error>) -> Void) {
         dataFetcher.download(icon: buff.result.author.image, completion: completion)
     }
 
@@ -33,12 +33,7 @@ public class BuffViewModel {
     }()
 
     lazy var answers: [String] = {
-        var answers = [String]()
-        for answer in buff.result.answers {
-            answers.append(answer.title)
-        }
-
-        return answers
+        return buff.result.answers.map { $0.title }
     }()
 
     lazy var timeToShow: TimeInterval = {

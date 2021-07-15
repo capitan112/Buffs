@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 
 enum ConversionFailure: Error {
+    case invalidKey(CodingKey, DecodingError.Context)
+    case typeMismatch(Any.Type, DecodingError.Context)
+    case dataCorrupted(DecodingError.Context)
+    
     case invalidData
     case missingData
     case responceError
@@ -39,21 +43,21 @@ class NetworkDataFetcher: NetworkDataFetcherProtocol {
     }
 
     func fetchBuffs(by id: String, completion: @escaping (Result<Buff, Error>) -> Void) {
-        fetchGenericJSONData(id: id, response: completion)
+        fetchData(id: id, response: completion)
     }
 
-    private func fetchGenericJSONData(id: String, response: @escaping (Result<Buff, Error>) -> Void) {
+    private func fetchData<T: Decodable>(id: String, response: @escaping (Result<T, Error>) -> Void) {
         networking.request(parameter: id) { dataResponse in
             guard let data = try? dataResponse.get() else {
                 response(.failure(ConversionFailure.responceError))
                 return
             }
 
-            self.decodeJSON(from: data, completion: response)
+            self.decodeData(from: data, completion: response)
         }
     }
 
-    private func decodeJSON(from data: Data?, completion: @escaping (Result<Buff, Error>) -> Void) {
+    private func decodeData<T: Decodable>(from data: Data?, completion: @escaping (Result<T, Error>) -> Void) {
         guard let data = data else {
             completion(.failure(ConversionFailure.missingData))
             return
@@ -61,12 +65,21 @@ class NetworkDataFetcher: NetworkDataFetcherProtocol {
 
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
         do {
-            let result = Result(catching: {
-                try decoder.decode(Buff.self, from: data)
-            })
-
-            completion(result)
+            let result = try decoder.decode(T.self, from: data)
+            completion(.success(result))
+        } catch DecodingError.keyNotFound(let key, let contex) {
+            debugPrint("keyNotFound: \(key) contex: \(contex)")
+            completion(.failure(ConversionFailure.invalidKey(key, contex)))
+        } catch DecodingError.typeMismatch(let type, let contex) {
+            completion(.failure(ConversionFailure.typeMismatch(type, contex)))
+            debugPrint("typeMismatch: \(type) contex: \(contex)")
+        } catch DecodingError.dataCorrupted(let contex) {
+            debugPrint("dataCorrupted with contex: \(contex)")
+            completion(.failure(ConversionFailure.dataCorrupted(contex)))
+        } catch {
+            debugPrint("not recognized error")
         }
     }
 }
