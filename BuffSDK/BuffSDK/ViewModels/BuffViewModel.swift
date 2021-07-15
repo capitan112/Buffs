@@ -33,7 +33,7 @@ class BuffViewModel {
     }()
 
     lazy var answers: [String] = {
-        return buff.result.answers.map { $0.title }
+        buff.result.answers.map { $0.title }
     }()
 
     lazy var timeToShow: TimeInterval = {

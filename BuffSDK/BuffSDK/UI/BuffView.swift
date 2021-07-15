@@ -78,7 +78,7 @@ public class BuffView: UIViewNibLoadable {
         answersStack.removeAllArrangedSubviews()
 
         var tagIndex = 0
-        
+
         for answer in answers {
             let answerLabel = contentLabel(text: answer)
             let button = contentButton(tag: tagIndex)
@@ -138,10 +138,10 @@ public class BuffView: UIViewNibLoadable {
         return stackView
     }
 
-    @objc private func buttonTapped(_ sender: UIButton) {
+    @objc private func buttonTapped(_: UIButton) {
         gettedAnswer()
     }
-        
+
     @objc private func gestureTapped(_ sender: UIGestureRecognizer) {
         if let stackView = sender.view as? UIStackView, let view = stackView.subviews.first {
             view.backgroundColor = .green
@@ -149,19 +149,19 @@ public class BuffView: UIViewNibLoadable {
 
         gettedAnswer()
     }
-    
+
     private func gettedAnswer() {
         disableQuestionaryButtons()
         stopAndHideCircleTimer()
     }
-    
+
     private func stopAndHideCircleTimer() {
         circularTimer.stopTimer()
-    
-        UIView.animate(withDuration: 0.45, animations:  {
+
+        UIView.animate(withDuration: 0.45, animations: {
             self.circularTimer.isHidden = true
         })
-        
+
         DispatchQueue.main.asyncAfter(deadline: .now() + twoSeconds) {
             self.hideBuffWithAnimation()
         }

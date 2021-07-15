@@ -12,7 +12,6 @@ enum ConversionFailure: Error {
     case invalidKey(CodingKey, DecodingError.Context)
     case typeMismatch(Any.Type, DecodingError.Context)
     case dataCorrupted(DecodingError.Context)
-    
     case invalidData
     case missingData
     case responceError
@@ -65,21 +64,22 @@ class NetworkDataFetcher: NetworkDataFetcherProtocol {
 
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        
+
         do {
             let result = try decoder.decode(T.self, from: data)
             completion(.success(result))
-        } catch DecodingError.keyNotFound(let key, let contex) {
+        } catch let DecodingError.keyNotFound(key, contex) {
             debugPrint("keyNotFound: \(key) contex: \(contex)")
             completion(.failure(ConversionFailure.invalidKey(key, contex)))
-        } catch DecodingError.typeMismatch(let type, let contex) {
+        } catch let DecodingError.typeMismatch(type, contex) {
             completion(.failure(ConversionFailure.typeMismatch(type, contex)))
             debugPrint("typeMismatch: \(type) contex: \(contex)")
-        } catch DecodingError.dataCorrupted(let contex) {
+        } catch let DecodingError.dataCorrupted(contex) {
             debugPrint("dataCorrupted with contex: \(contex)")
             completion(.failure(ConversionFailure.dataCorrupted(contex)))
         } catch {
             debugPrint("not recognized error")
+            completion(.failure(ConversionFailure.missingData))
         }
     }
 }

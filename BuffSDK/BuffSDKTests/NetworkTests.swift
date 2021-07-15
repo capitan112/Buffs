@@ -29,7 +29,7 @@ class NetworkTests: XCTestCase {
     func testImageDownload() {
         dataFetcher.download(icon: "icon", completion: { response in
             switch response {
-            case .success(_):
+            case .success:
                 debugPrint("success")
                 XCTAssert(true)
             case let .failure(error):
@@ -38,7 +38,7 @@ class NetworkTests: XCTestCase {
             }
         })
     }
-    
+
     func testURLConverter() {
         guard let url = networkService.convertToURL(parameter: String(1)) else {
             XCTFail()
@@ -69,17 +69,17 @@ class NetworkTests: XCTestCase {
 class NetworkServiceLocal: NetworkProtocol {
     private var charactersJson: String
     private var imageName: String
-    
-    init(json: String, imageName: String = "Generic.Answer_ico" ) {
-        self.charactersJson = json
+
+    init(json: String, imageName: String = "Generic.Answer_ico") {
+        charactersJson = json
         self.imageName = imageName
     }
-    
-    func request(parameter: String, completion: @escaping (Result<Data, Error>) -> Void) {
-        completion(.success(self.charactersJson.data(using: .utf8)!))
+
+    func request(parameter _: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        completion(.success(charactersJson.data(using: .utf8)!))
     }
-    
-    func request(icon: String, completion: @escaping (Result<Data, Error>) -> Void) {
+
+    func request(icon _: String, completion: @escaping (Result<Data, Error>) -> Void) {
         let image = UIImage(named: imageName,
                             in: Bundle.sdkBundle,
                             compatibleWith: nil)
