@@ -15,8 +15,8 @@ class BuffViewModelTest: XCTestCase {
     var viewModel: BuffViewModel!
 
     override func setUp() {
-        let networkServicelocal = NetworkServiceLocal(json: buffJson)
-        dataFetcher = NetworkDataFetcher(networking: networkServicelocal)
+        let networkServiceLocal = NetworkServiceLocal(json: buffJson)
+        dataFetcher = NetworkDataFetcher(networking: networkServiceLocal)
         dataFetcher.fetchBuffs(by: "1", completion: { response in
             switch response {
             case let .success(buff):

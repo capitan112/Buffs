@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		485847662690C0520062F992 /* Fonts+Registrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485847652690C0520062F992 /* Fonts+Registrations.swift */; };
+		48726A4C26A1780C005A9768 /* NetworkServiceLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48726A4B26A1780C005A9768 /* NetworkServiceLocal.swift */; };
 		48947B262691A27500871417 /* RequestConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48947B232691A27500871417 /* RequestConstant.swift */; };
 		48947B272691A27500871417 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48947B242691A27500871417 /* NetworkService.swift */; };
 		48947B282691A27500871417 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48947B252691A27500871417 /* NetworkDataFetcher.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		485847652690C0520062F992 /* Fonts+Registrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fonts+Registrations.swift"; sourceTree = "<group>"; };
+		48726A4B26A1780C005A9768 /* NetworkServiceLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceLocal.swift; sourceTree = "<group>"; };
 		48947B232691A27500871417 /* RequestConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestConstant.swift; sourceTree = "<group>"; };
 		48947B242691A27500871417 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		48947B252691A27500871417 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				E6652CC92384247B00A1BF6D /* NetworkTests.swift */,
 				48B88DF52694A32D001407A9 /* BuffViewModelTest.swift */,
 				48947B3D2691B5A400871417 /* BuffsSDKTests.swift */,
+				48726A4B26A1780C005A9768 /* NetworkServiceLocal.swift */,
 				E6652CCB2384247B00A1BF6D /* Info.plist */,
 			);
 			path = BuffSDKTests;
@@ -380,6 +383,7 @@
 			files = (
 				E6652CCA2384247B00A1BF6D /* NetworkTests.swift in Sources */,
 				48B88DF62694A32D001407A9 /* BuffViewModelTest.swift in Sources */,
+				48726A4C26A1780C005A9768 /* NetworkServiceLocal.swift in Sources */,
 				48947B3E2691B5A400871417 /* BuffsSDKTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

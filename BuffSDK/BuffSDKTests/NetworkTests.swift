@@ -27,14 +27,23 @@ class NetworkTests: XCTestCase {
     }
 
     func testImageDownload() {
+        dataFetcher.download(icon: "Generic.Answer_ico", completion: { response in
+            switch response {
+            case .success:
+                XCTAssert(true)
+            case .failure(_):
+                XCTFail()
+            }
+        })
+    }
+    
+    func testNoImageDownloadWithNotProperlyName() {
         dataFetcher.download(icon: "icon", completion: { response in
             switch response {
             case .success:
-                debugPrint("success")
-                XCTAssert(true)
-            case let .failure(error):
-                debugPrint(error.localizedDescription)
                 XCTFail()
+            case .failure(_):
+                XCTAssert(true)
             }
         })
     }
@@ -63,31 +72,6 @@ class NetworkTests: XCTestCase {
         let expectedQuestion = "Kaio Jorge has 4 goals this tournament – I think he will score again today. What do you think?"
         XCTAssertEqual(buff.result.question.title, expectedQuestion)
         XCTAssertEqual(buff.result.answers.count, 3)
-    }
-}
-
-class NetworkServiceLocal: NetworkProtocol {
-    private var charactersJson: String
-    private var imageName: String
-
-    init(json: String, imageName: String = "Generic.Answer_ico") {
-        charactersJson = json
-        self.imageName = imageName
-    }
-
-    func request(parameter _: String, completion: @escaping (Result<Data, Error>) -> Void) {
-        completion(.success(charactersJson.data(using: .utf8)!))
-    }
-
-    func request(icon _: String, completion: @escaping (Result<Data, Error>) -> Void) {
-        let image = UIImage(named: imageName,
-                            in: Bundle.sdkBundle,
-                            compatibleWith: nil)
-        if let data = image?.pngData() {
-            completion(.success(data))
-        } else {
-            completion(.failure(ConversionFailure.missingData))
-        }
     }
 }
 
